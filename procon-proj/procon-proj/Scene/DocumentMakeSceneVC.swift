@@ -1,5 +1,5 @@
 //
-//  ImageDetailVC.swift
+//  DocumentMakeSceneVC.swift
 //  procon-proj
 //
 //  Created by 伊東佑真 on 2020/06/15.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseMLVision
 
-class DocumentLoadSceneVC: UIViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIGestureRecognizerDelegate{
+class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIGestureRecognizerDelegate{
     
     var targetImage:UIImage?
         
@@ -25,7 +25,6 @@ class DocumentLoadSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         updateSentenceView("text field for recognized text")
         
         let screen = UIScreen.main.bounds.size
-        print(screen)
         readImage.center = CGPoint(x: screen.width/4, y: screen.height / 4 * 3)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap(_:)))
         gesture.delegate = self
@@ -166,6 +165,7 @@ class DocumentLoadSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
     @IBAction func saveButtonTapped(_ sender: Any) {
         let nextScene = self.storyboard?.instantiateViewController(identifier: "DocumentSaveSceneVC") as! DocumentSaveSceneVC
         nextScene.receivedImage = readImage.image
+        nextScene.modalPresentationStyle = .pageSheet
         self.present(nextScene,animated: true,completion: nil)
     }
 }
