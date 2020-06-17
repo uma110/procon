@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>664787423460-te0iat9hg2ilj5ei88d7dsui2aus04sh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.664787423460-te0iat9hg2ilj5ei88d7dsui2aus04sh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUZCectFGF3wr3KZjPK7ZuLeLHF3ZFpHE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>664787423460</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gmail.procon-proj</string>
+	<key>PROJECT_ID</key>
+	<string>procon-proj</string>
+	<key>STORAGE_BUCKET</key>
+	<string>procon-proj.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:664787423460:ios:3fd6c3d5dde64231e2dcf1</string>
+	<key>DATABASE_URL</key>
+	<string>https://procon-proj.firebaseio.com</string>
+</dict>
+</plist>
