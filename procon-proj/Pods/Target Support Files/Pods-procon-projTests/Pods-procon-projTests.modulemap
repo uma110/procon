@@ -1,0 +1,6 @@
+framework module Pods_procon_projTests {
+  umbrella header "Pods-procon-projTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
