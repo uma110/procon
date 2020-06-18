@@ -25,7 +25,7 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         updateSentenceView("text field for recognized text")
         
         let screen = UIScreen.main.bounds.size
-        readImage.center = CGPoint(x: screen.width/4, y: screen.height / 4 * 3)
+        readImage.center = CGPoint(x: screen.width/5, y: screen.height - 260)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap(_:)))
         gesture.delegate = self
         readImage.addGestureRecognizer(gesture)
@@ -39,7 +39,7 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         var position:CGPoint
         var scale:CGFloat = 1
         if isScaleUp{
-            position = CGPoint(x: screen.width/4, y: screen.height / 4 * 3)
+            position = CGPoint(x: screen.width/5, y: screen.height - 260)
             scale /= defaultScaleUpValue
             isScaleUp = !isScaleUp
         }else{

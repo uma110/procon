@@ -15,13 +15,15 @@
 		0798C1972497A3C7007D3C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0798C1952497A3C7007D3C08 /* LaunchScreen.storyboard */; };
 		0798C1A22497A3C7007D3C08 /* procon_projTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1A12497A3C7007D3C08 /* procon_projTests.swift */; };
 		0798C1AD2497A3C7007D3C08 /* procon_projUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1AC2497A3C7007D3C08 /* procon_projUITests.swift */; };
-		0798C1BE2497B0AC007D3C08 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1BD2497B0AC007D3C08 /* FirstVC.swift */; };
+		0798C1BE2497B0AC007D3C08 /* DocumentOnlineListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1BD2497B0AC007D3C08 /* DocumentOnlineListVC.swift */; };
 		0798C1C22497B72A007D3C08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0798C1C12497B72A007D3C08 /* GoogleService-Info.plist */; };
 		0798C1C42497BB09007D3C08 /* DocumentMakeSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1C32497BB09007D3C08 /* DocumentMakeSceneVC.swift */; };
 		0798C1C724985B0F007D3C08 /* DocumentDataOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1C624985B0F007D3C08 /* DocumentDataOperator.swift */; };
 		0798C1C924985D0E007D3C08 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1C824985D0E007D3C08 /* AppUtils.swift */; };
 		0798C1CB2498BD40007D3C08 /* DocumentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1CA2498BD40007D3C08 /* DocumentListVC.swift */; };
 		07C1F99E2499E2E5000232F5 /* DocumentSaveSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1F99D2499E2E5000232F5 /* DocumentSaveSceneVC.swift */; };
+		07C1F9A4249A4363000232F5 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1F9A3249A4363000232F5 /* TabController.swift */; };
+		07C1F9A8249AF719000232F5 /* zikkenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1F9A7249AF719000232F5 /* zikkenVC.swift */; };
 		87F84359AE028AA27ADFCBD6 /* Pods_procon_proj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BDD1D2EDCCFBA37C0591AE /* Pods_procon_proj.framework */; };
 		D228EAF8AFAD9CC93E47EC49 /* Pods_procon_proj_procon_projUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1C86F868BB235DE2DFDC3E /* Pods_procon_proj_procon_projUITests.framework */; };
 		FA7097A7DFD8E67FDA5D416D /* Pods_procon_projTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8232C009298CF9DB5360AC9E /* Pods_procon_projTests.framework */; };
@@ -59,13 +61,15 @@
 		0798C1A82497A3C7007D3C08 /* procon-projUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "procon-projUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798C1AC2497A3C7007D3C08 /* procon_projUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = procon_projUITests.swift; sourceTree = "<group>"; };
 		0798C1AE2497A3C7007D3C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0798C1BD2497B0AC007D3C08 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		0798C1BD2497B0AC007D3C08 /* DocumentOnlineListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOnlineListVC.swift; sourceTree = "<group>"; };
 		0798C1C12497B72A007D3C08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Documents/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0798C1C32497BB09007D3C08 /* DocumentMakeSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentMakeSceneVC.swift; sourceTree = "<group>"; };
 		0798C1C624985B0F007D3C08 /* DocumentDataOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDataOperator.swift; sourceTree = "<group>"; };
 		0798C1C824985D0E007D3C08 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		0798C1CA2498BD40007D3C08 /* DocumentListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListVC.swift; sourceTree = "<group>"; };
 		07C1F99D2499E2E5000232F5 /* DocumentSaveSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveSceneVC.swift; sourceTree = "<group>"; };
+		07C1F9A3249A4363000232F5 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		07C1F9A7249AF719000232F5 /* zikkenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zikkenVC.swift; sourceTree = "<group>"; };
 		090584F9A987F8CD54EC01DD /* Pods-procon-projTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-procon-projTests.debug.xcconfig"; path = "Target Support Files/Pods-procon-projTests/Pods-procon-projTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0F1C86F868BB235DE2DFDC3E /* Pods_procon_proj_procon_projUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_procon_proj_procon_projUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		385820A14A895F94D761CDE1 /* Pods-procon-projTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-procon-projTests.release.xcconfig"; path = "Target Support Files/Pods-procon-projTests/Pods-procon-projTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,10 +169,12 @@
 		0798C1BC2497B088007D3C08 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				0798C1BD2497B0AC007D3C08 /* FirstVC.swift */,
+				0798C1BD2497B0AC007D3C08 /* DocumentOnlineListVC.swift */,
 				0798C1CA2498BD40007D3C08 /* DocumentListVC.swift */,
 				0798C1C32497BB09007D3C08 /* DocumentMakeSceneVC.swift */,
 				07C1F99D2499E2E5000232F5 /* DocumentSaveSceneVC.swift */,
+				07C1F9A3249A4363000232F5 /* TabController.swift */,
+				07C1F9A7249AF719000232F5 /* zikkenVC.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -485,7 +491,9 @@
 				0798C18A2497A3C6007D3C08 /* SceneDelegate.swift in Sources */,
 				0798C1C42497BB09007D3C08 /* DocumentMakeSceneVC.swift in Sources */,
 				0798C1CB2498BD40007D3C08 /* DocumentListVC.swift in Sources */,
-				0798C1BE2497B0AC007D3C08 /* FirstVC.swift in Sources */,
+				07C1F9A8249AF719000232F5 /* zikkenVC.swift in Sources */,
+				0798C1BE2497B0AC007D3C08 /* DocumentOnlineListVC.swift in Sources */,
+				07C1F9A4249A4363000232F5 /* TabController.swift in Sources */,
 				0798C1C724985B0F007D3C08 /* DocumentDataOperator.swift in Sources */,
 				07C1F99E2499E2E5000232F5 /* DocumentSaveSceneVC.swift in Sources */,
 				0798C1C924985D0E007D3C08 /* AppUtils.swift in Sources */,
@@ -665,6 +673,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2797SUS5D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "procon-proj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -684,6 +696,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2797SUS5D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "procon-proj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

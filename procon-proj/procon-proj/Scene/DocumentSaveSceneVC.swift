@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDelegate{
+class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate{
     @IBOutlet weak var header: UITextField!
     @IBOutlet weak var date: UITextField!
     
@@ -25,6 +25,16 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         initializeImage()
         initializeTextField()
         initializeScrollView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapped(_ sender:UITapGestureRecognizer){
+        print("tap")
+        let tapPoint = sender.location(in: self.view)
+        print("x y -> \(tapPoint.x) \(tapPoint.y)")
     }
     
     func initializeImage(){
@@ -41,9 +51,10 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         
         header.keyboardType = UIKeyboardType.default
         header.placeholder = "中学３年レベルの英文"
+        header.attributedPlaceholder = NSAttributedString(string: "例:英語論文のアブストラクト１", attributes: [NSAttributedString.Key.foregroundColor:UIColor.lightGray])
         
         date.keyboardType = UIKeyboardType.numbersAndPunctuation
-        date.placeholder = "2020/06/17"
+        date.attributedPlaceholder = NSAttributedString(string: "例:2020/06/17", attributes: [NSAttributedString.Key.foregroundColor:UIColor.lightGray])
     }
     
     func initializeScrollView(){
@@ -52,7 +63,7 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         
         let padding = CGFloat(0)
         let scrollViewWidth = screenSize.width - padding*2
-        scrollView.frame = CGRect(x:padding,y:30,width: scrollViewWidth, height: screenSize.height)
+        scrollView.frame = CGRect(x:padding,y:0,width: scrollViewWidth, height: screenSize.height)
         
         scrollView.contentSize = CGSize(width: scrollViewWidth , height: screenSize.height * 1.1)
         
@@ -88,9 +99,16 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         let convertedTextFieldFrameBottom = self.view.convert(currentSelectedTextField.frame, from: scrollView).maxY
-        
+        print(convertedTextFieldFrameBottom)
         // top of keyboard
-        let topKeyboard = UIScreen.main.bounds.size.height - keyboardFrame.size.height
+        var modalHeightDiff = CGFloat(0)
+        if self.modalPresentationStyle == .pageSheet {
+            modalHeightDiff = CGFloat(30)
+        }
+        print(modalHeightDiff)
+        print(self.modalPresentationStyle == .fullScreen)
+        let topKeyboard = UIScreen.main.bounds.size.height - keyboardFrame.size.height-modalHeightDiff
+        print(topKeyboard)
         // 重なり
         let distance = convertedTextFieldFrameBottom - topKeyboard
         
@@ -120,7 +138,18 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title:"確認メッセージ",message: "本当にデータを保存していいですか？",preferredStyle: .alert)
+        var message:String = "本当にデータを保存していいですか？"
+        if switchSavingLocal.isOn{
+            message += "\nローカル:○"
+        }else{
+            message += "\nローカル:×"
+        }
+        if switchSavingOnline.isOn{
+            message += "\nオンライン:○"
+        }else{
+            message += "\nオンライン:×"
+        }
+        let alertController = UIAlertController(title:"確認メッセージ",message:message,preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "cancel", style: .default, handler: {action in print("Cancel")})
         alertController.addAction(cancelAction)
