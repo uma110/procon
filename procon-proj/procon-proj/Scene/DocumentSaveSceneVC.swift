@@ -155,14 +155,14 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         alertController.addAction(cancelAction)
         
         let okAction = UIAlertAction(title: "ok", style: .default, handler: {action in print("OK")
-            self.saveData()
+            self.saveData2Local()
         })
         alertController.addAction(okAction)
         
         self.present(alertController,animated: true,completion: nil)
     }
     
-    func saveData(){
+    func saveData2Local(){
         let docInfo = DocumentInfo(explain: header.text, savedDate: date.text, context: context.text)
         let image = imageView.image
         if image == nil{

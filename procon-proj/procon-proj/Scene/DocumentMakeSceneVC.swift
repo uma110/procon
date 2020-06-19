@@ -162,6 +162,12 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         }
     }
     
+    @IBAction func moveQuestionScene(_ sender: Any) {
+        let questionScene = self.storyboard?.instantiateViewController(identifier: "QuestionSceneVC") as! QuestionSceneVC
+        questionScene.modalPresentationStyle = .fullScreen
+        self.present(questionScene,animated: true,completion: nil)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         let nextScene = self.storyboard?.instantiateViewController(identifier: "DocumentSaveSceneVC") as! DocumentSaveSceneVC
         nextScene.receivedImage = readImage.image

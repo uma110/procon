@@ -56,5 +56,31 @@ class DocumentListVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("select")
+        
+        let uidArray = DocumentDataOperator.shared.getUidArray()
+        assert(indexPath.row < uidArray.count, "index is out of range uid array")
+        
+        let uid = uidArray[indexPath.row]
+        
+        guard let docInfo = DocumentDataOperator.shared.loadDocumentInfo(uid: uid) else{
+            assert(false, "loaded document info class -> nil")
+        }
+        
+        let message = String(describing: docInfo.explain) + "\n" + String(describing: docInfo.savedDate)
+        let alertController = UIAlertController(title:"確認メッセージ",message: message,preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "戻る", style: .default, handler: {action in print("back")})
+        
+        let okAction = UIAlertAction(title: "問題を解く", style: .default, handler: {action in
+            print("go")
+            let questionScene = self.storyboard?.instantiateViewController(identifier: "QuestionSceneVC") as! QuestionSceneVC
+            questionScene.modalPresentationStyle = .fullScreen
+            self.present(questionScene,animated: true,completion: nil)
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        self.present(alertController,animated: true,completion: nil)
     }
 }
