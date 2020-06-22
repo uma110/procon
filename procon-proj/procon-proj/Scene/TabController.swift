@@ -12,6 +12,7 @@ class TabController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedIndex = 1
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

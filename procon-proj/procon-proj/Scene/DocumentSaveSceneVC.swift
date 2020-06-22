@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
-class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate{
+class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate{
     @IBOutlet weak var header: UITextField!
     @IBOutlet weak var date: UITextField!
     
@@ -22,6 +24,9 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("view did load")
+        context.delegate = self
         initializeImage()
         initializeTextField()
         initializeScrollView()
@@ -71,10 +76,37 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        if #available(iOS 13, *){
+            presentingViewController?.beginAppearanceTransition(false, animated: animated)
+        }
+        print("view will appear")
+        registerObserver()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 13, *){
+            presentingViewController?.endAppearanceTransition()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        if #available(iOS 13, *){
+            presentingViewController?.beginAppearanceTransition(true, animated: animated)
+            presentingViewController?.endAppearanceTransition()
+        }
+        print("view will disppear")
+        resetObserver()
+    }
+    
+    func registerObserver(){
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardWillShow(_:)),
-                                               name: UIResponder.keyboardWillShowNotification,
+                                               selector: #selector(self.keyboardDidShow(_:)),
+                                               name: UIResponder.keyboardDidShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWillHide(_:)) ,
@@ -82,23 +114,23 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
                                                object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    func resetObserver(){
         NotificationCenter.default.removeObserver(self,
-                                                  name: UIResponder.keyboardWillShowNotification,
-                                                  object: self.view.window)
+                                                  name: UIResponder.keyboardDidShowNotification,
+                                                  object: nil)
         NotificationCenter.default.removeObserver(self,
                                                   name: UIResponder.keyboardDidHideNotification,
-                                                  object: self.view.window)
+                                                  object: nil)
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardDidShow(_ notification: Notification) {
         print("show")
         let info = notification.userInfo!
         
         let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
-        let convertedTextFieldFrameBottom = self.view.convert(currentSelectedTextField.frame, from: scrollView).maxY
+        print(currentSelectedTextInputFrame)
+        let convertedTextFieldFrameBottom = self.view.convert(currentSelectedTextInputFrame!, from: scrollView).maxY
         print(convertedTextFieldFrameBottom)
         // top of keyboard
         var modalHeightDiff = CGFloat(0)
@@ -106,7 +138,6 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
             modalHeightDiff = CGFloat(30)
         }
         print(modalHeightDiff)
-        print(self.modalPresentationStyle == .fullScreen)
         let topKeyboard = UIScreen.main.bounds.size.height - keyboardFrame.size.height-modalHeightDiff
         print(topKeyboard)
         // 重なり
@@ -124,11 +155,17 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         scrollView.contentOffset.y = 0
     }
     
-    private var currentSelectedTextField:UITextField!
+    private var currentSelectedTextInputFrame:CGRect?
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        print("update")
+        currentSelectedTextInputFrame = textView.frame
+        return true
+    }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print("update")
-        currentSelectedTextField = textField
+        currentSelectedTextInputFrame = textField.frame
         return true
     }
     
@@ -138,6 +175,21 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if !switchSavingLocal.isOn && !switchSavingOnline.isOn {
+            AppUtils.alert(currentVC: self, title: "", message: "ローカルに保存、もしくはオンライン共有、最低一つ以上選択して下さい")
+            return
+        }
+        if(switchSavingOnline.isOn){
+            guard let user = Auth.auth().currentUser else{
+                AppUtils.alert(currentVC: self, title: "", message: "データをオンライン共有するには、ログインしてください")
+                return
+            }
+            if !user.isEmailVerified{
+                AppUtils.alert(currentVC: self, title: "", message: "データをオンラインにアップロードするには、お使いのユーザーアカウントのメール認証をしてください")
+                return
+            }
+        }
+        
         var message:String = "本当にデータを保存していいですか？"
         if switchSavingLocal.isOn{
             message += "\nローカル:○"
@@ -155,7 +207,14 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
         alertController.addAction(cancelAction)
         
         let okAction = UIAlertAction(title: "ok", style: .default, handler: {action in print("OK")
-            self.saveData2Local()
+            
+            if self.switchSavingLocal.isOn{
+                self.saveData2Local()
+            }
+            
+            if self.switchSavingOnline.isOn{
+                self.saveData2Online()
+            }
         })
         alertController.addAction(okAction)
         
@@ -165,10 +224,69 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     func saveData2Local(){
         let docInfo = DocumentInfo(explain: header.text, savedDate: date.text, context: context.text)
         let image = imageView.image
+        DocumentDataOperator.shared.addUid(uid: docInfo.uid)
         if image == nil{
             DocumentDataOperator.shared.saveDocumentInfo(docInfo: docInfo)
         }else{
             DocumentDataOperator.shared.saveDocumentData(image: image!, docInfo: docInfo)
         }
+    }
+    
+    @IBAction func moveAuthScene(_ sender: Any) {
+        let authScene = self.storyboard?.instantiateViewController(identifier: "AuthenticationVC") as! AuthenticationVC
+        authScene.modalPresentationStyle = .pageSheet
+        resetObserver()
+        self.present(authScene,animated: true,completion: nil)
+    }
+    
+    func saveData2Online(){
+        guard let user = Auth.auth().currentUser else{
+            AppUtils.alert(currentVC: self, title: "", message: "データをオンライン共有するには、ログインしてください")
+            return
+        }
+        
+        let docInfo = DocumentInfo(explain: "this is a document about COVID-19", savedDate: "2020/06/22", context: "I am worried about this virus")
+        
+        let db = Firestore.firestore()
+        let ref = db.collection("documents").document(user.uid)
+        /*
+         ref.updateData(["mydata1":25,
+         "mydata2":"234",
+         ]){ error in
+         if let error = error{
+         print("Error adding document : \(error)")
+         return
+         }
+         print("data save ok")
+         }
+         */
+        guard let archiveData = try? NSKeyedArchiver.archivedData(withRootObject: docInfo, requiringSecureCoding: true) else {
+            fatalError("archive failed")
+        }
+        
+        ref.setData([docInfo.uid:archiveData]){
+            error in
+            if let error = error{
+                print("Error adding document : \(error)")
+                return
+            }
+            print("data save ok")
+            AppUtils.alert(currentVC: self, title: "", message: "ドキュメントデータをオンラインにアップロードしました。")
+        }
+        
+        /*
+         ref.getDocument{(document,error) in
+         if let document = document,document.exists{
+         guard let data = document.data() else{return}
+         if let docData = data["myclass"] as? Data{
+         let docInfo = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(docData) as? DocumentInfo
+         print(docInfo?.explain)
+         print(docInfo?.savedDate)
+         print(docInfo?.context)
+         print(docInfo?.uid)
+         }
+         }
+         }
+         */
     }
 }
