@@ -25,5 +25,4 @@ extern "C" { namespace coreimage {
         
         return color;
   }
-    
 }}
