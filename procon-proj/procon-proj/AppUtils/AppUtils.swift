@@ -9,4 +9,13 @@
 import Foundation
 
 class AppUtils{
+    static func alert(currentVC:UIViewController,title:String, message:String) {
+        let alertController = UIAlertController(title: title,
+                                   message: message,
+                                   preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",
+                                       style: .default,
+                                       handler: nil))
+        currentVC.present(alertController, animated: true)
+    }
 }

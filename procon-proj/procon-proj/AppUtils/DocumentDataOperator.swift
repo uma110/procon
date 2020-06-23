@@ -166,7 +166,6 @@ class DocumentInfo:NSCoder,NSSecureCoding{
     var context:String?
     init(explain:String?,savedDate:String?,context:String?){
         self.uid = NSUUID().uuidString
-        DocumentDataOperator.shared.addUid(uid: self.uid)
         self.imageFileName = uid + ".jpg"
         self.explain = explain
         self.savedDate = savedDate

@@ -6,6 +6,8 @@
 	<dict>
 		<key>BoringSSL-GRPC.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -18,11 +20,15 @@
 		</dict>
 		<key>FirebaseAnalytics.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
@@ -42,6 +48,8 @@
 		</dict>
 		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
@@ -103,6 +111,8 @@
 		</dict>
 		<key>GoogleAppMeasurement.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
@@ -178,26 +188,36 @@
 		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 		<key>gRPC-C++-gRPCCertificates-Cpp.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>21</integer>
 		</dict>
 		<key>gRPC-C++.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>24</integer>
 		</dict>
