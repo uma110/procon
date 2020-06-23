@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073A712924A190DC00882C1E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073A712724A190D400882C1E /* opencv2.framework */; };
 		078B1C6C249D8D6100BD24AF /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */; };
-		078B1C7024A0A7A100BD24AF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078B1C6E24A0A77200BD24AF /* opencv2.framework */; };
-		078B1C7E24A0BA8500BD24AF /* OpenCVUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C7D24A0BA8500BD24AF /* OpenCVUtils.mm */; };
+		078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C8624A1856700BD24AF /* OpenCVUtils.mm */; };
 		0798C1882497A3C6007D3C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1872497A3C6007D3C08 /* AppDelegate.swift */; };
 		0798C18A2497A3C6007D3C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798C1892497A3C6007D3C08 /* SceneDelegate.swift */; };
 		0798C18F2497A3C6007D3C08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0798C18D2497A3C6007D3C08 /* Main.storyboard */; };
@@ -53,11 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073A712724A190D400882C1E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
-		078B1C6E24A0A77200BD24AF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		078B1C7B24A0B11E00BD24AF /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		078B1C7D24A0BA8500BD24AF /* OpenCVUtils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVUtils.mm; sourceTree = "<group>"; };
-		078B1C7F24A0BAC000BD24AF /* OpenCVUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVUtils.h; sourceTree = "<group>"; };
+		078B1C8424A1842C00BD24AF /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		078B1C8524A184E500BD24AF /* OpenCVUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVUtils.h; sourceTree = "<group>"; };
+		078B1C8624A1856700BD24AF /* OpenCVUtils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVUtils.mm; sourceTree = "<group>"; };
 		0798C1842497A3C6007D3C08 /* procon-proj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "procon-proj.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0798C1872497A3C6007D3C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0798C1892497A3C6007D3C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				078B1C7024A0A7A100BD24AF /* opencv2.framework in Frameworks */,
+				073A712924A190DC00882C1E /* opencv2.framework in Frameworks */,
 				87F84359AE028AA27ADFCBD6 /* Pods_procon_proj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,10 +127,10 @@
 		078B1C6D24A0A74700BD24AF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				078B1C6E24A0A77200BD24AF /* opencv2.framework */,
-				078B1C7B24A0B11E00BD24AF /* Bridging-Header.h */,
-				078B1C7D24A0BA8500BD24AF /* OpenCVUtils.mm */,
-				078B1C7F24A0BAC000BD24AF /* OpenCVUtils.h */,
+				073A712724A190D400882C1E /* opencv2.framework */,
+				078B1C8424A1842C00BD24AF /* Bridging-Header.h */,
+				078B1C8524A184E500BD24AF /* OpenCVUtils.h */,
+				078B1C8624A1856700BD24AF /* OpenCVUtils.mm */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -263,7 +263,6 @@
 				0798C1822497A3C6007D3C08 /* Resources */,
 				CA715ADB4B75F41D5E3C367E /* [CP] Embed Pods Frameworks */,
 				1C6C76D30F010A89B4EB5585 /* [CP] Copy Pods Resources */,
-				078B1C8024A0BE0C00BD24AF /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -409,24 +408,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		078B1C8024A0BE0C00BD24AF /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
-		};
 		1C6C76D30F010A89B4EB5585 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,10 +531,10 @@
 				0798C18A2497A3C6007D3C08 /* SceneDelegate.swift in Sources */,
 				0798C1C42497BB09007D3C08 /* DocumentMakeSceneVC.swift in Sources */,
 				0798C1CB2498BD40007D3C08 /* DocumentListVC.swift in Sources */,
+				078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */,
 				07C1F9A8249AF719000232F5 /* zikkenVC.swift in Sources */,
 				0798C1BE2497B0AC007D3C08 /* DocumentOnlineListVC.swift in Sources */,
 				07C1F9A4249A4363000232F5 /* TabController.swift in Sources */,
-				078B1C7E24A0BA8500BD24AF /* OpenCVUtils.mm in Sources */,
 				0798C1C724985B0F007D3C08 /* DocumentDataOperator.swift in Sources */,
 				07C1F99E2499E2E5000232F5 /* DocumentSaveSceneVC.swift in Sources */,
 				07C1F9BD249BB970000232F5 /* QuestionSceneVC.swift in Sources */,
@@ -648,6 +629,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -708,6 +690,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -736,6 +719,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G2797SUS5D;
@@ -754,10 +738,11 @@
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.procon-proj";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./procon-proj/Framework/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -767,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G2797SUS5D;
@@ -785,9 +771,10 @@
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.procon-proj";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./procon-proj/Framework/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
