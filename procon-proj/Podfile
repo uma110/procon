@@ -10,6 +10,9 @@ target 'procon-proj' do
   # Pods for procon-proj
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'TesseractOCRiOS'
   
   target 'procon-projTests' do
