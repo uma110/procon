@@ -12,8 +12,18 @@ class DocumentListVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var documentTable: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        documentTable.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+    }
+    
+    @objc func refresh(sender:UIRefreshControl){
+        documentTable.reloadData()
+        sender.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

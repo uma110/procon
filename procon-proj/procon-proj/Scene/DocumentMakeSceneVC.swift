@@ -55,12 +55,19 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
     
     @IBAction func extractButtonTapped(_ sender: Any) {
         if targetImage != nil{
-            extractTextFromImage(targetImage!)
+            if binarySwitch.isOn{
+                let threshold = Int32(sliderValue.value)
+                extractTextFromImage(OpenCVUtils.rgb2binary(targetImage!, threshold: threshold))
+            }else{
+                extractTextFromImage(targetImage!)
+            }
         }else{
             print("target image -> nil")
         }
     }
     
+    @IBOutlet weak var sliderValue: UISlider!
+    @IBOutlet weak var binarySwitch: UISwitch!
     func extractTextFromImage (_ target:UIImage){
         let textRecognizer = vision.onDeviceTextRecognizer()
         let image = VisionImage(image: target)
@@ -112,8 +119,10 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
              print("======= recognized sentence =====")
              print(recognizedSentence)
              */
+            /*
             let sentence = "===== result text =====\n" + resultText + "\n\n===== recognized sentence =====\n" + recognizedSentence
-            self.updateSentenceView(sentence)
+ */
+            self.updateSentenceView(recognizedSentence)
         }
     }
     
