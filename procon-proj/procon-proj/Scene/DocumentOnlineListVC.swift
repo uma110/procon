@@ -23,11 +23,12 @@ class DocumentOnlineListVC: UIViewController,UITableViewDataSource,UITableViewDe
         
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(self.updateListCall(_:)), for: .valueChanged)
-        
-        updateList()
     }
     
+    var count:Int = 0
     func updateList(){
+        count += 1
+        print("update"+String(count))
         userInfos = [:]
         dataArray = []
         
@@ -52,8 +53,8 @@ class DocumentOnlineListVC: UIViewController,UITableViewDataSource,UITableViewDe
                         let user_uid = document.documentID
                         let data = document.data()
                         if let name = data["name"] as? String,let email = data["email"] as? String{
-                            print(name)
-                            print(email)
+//                            print(name)
+//                            print(email)
                             let userInfo = SimpleUserInfo(name: name, email: email)
                             self.userInfos[user_uid] = userInfo
                         }
@@ -78,7 +79,7 @@ class DocumentOnlineListVC: UIViewController,UITableViewDataSource,UITableViewDe
                     for document in querySnapShot!.documents{
                         let user_uid = document.documentID
                         let data = document.data()
-                        print(user_uid)
+//                        print(user_uid)
                         for val in data.values{
                             if let docData = val as? Data{
                                 if let docInfo = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(docData) as? DocumentInfo {
@@ -102,14 +103,16 @@ class DocumentOnlineListVC: UIViewController,UITableViewDataSource,UITableViewDe
             for data in self.dataArray{
                 let doc = data.document
                 let user = data.user
-                
+                /*
                 print(doc.explain ?? "nil")
                 print(user.name)
                 print(user.email)
+                */
             }
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }
+        print("update finish"+String(count))
     }
     
     @objc func updateListCall(_ sender:UIRefreshControl){
