@@ -22,11 +22,13 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
     
     var receivedImage:UIImage?
     
+    var receivedTextFromPreScene:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("view did load")
         context.delegate = self
+        context.text = receivedTextFromPreScene
         initializeImage()
         initializeTextField()
         initializeScrollView()
@@ -245,26 +247,16 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
             return
         }
         
-        let docInfo = DocumentInfo(explain: "this is a document about COVID-19", savedDate: "2020/06/22", context: "I am worried about this virus")
+        let docInfo = DocumentInfo(explain: header.text, savedDate: date.text, context: context.text)
         
         let db = Firestore.firestore()
         let ref = db.collection("documents").document(user.uid)
-        /*
-         ref.updateData(["mydata1":25,
-         "mydata2":"234",
-         ]){ error in
-         if let error = error{
-         print("Error adding document : \(error)")
-         return
-         }
-         print("data save ok")
-         }
-         */
+ 
         guard let archiveData = try? NSKeyedArchiver.archivedData(withRootObject: docInfo, requiringSecureCoding: true) else {
             fatalError("archive failed")
         }
         
-        ref.setData([docInfo.uid:archiveData]){
+        ref.setData([docInfo.uid:archiveData],merge: true){
             error in
             if let error = error{
                 print("Error adding document : \(error)")
@@ -273,20 +265,6 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
             print("data save ok")
             AppUtils.alert(currentVC: self, title: "", message: "ドキュメントデータをオンラインにアップロードしました。")
         }
-        
-        /*
-         ref.getDocument{(document,error) in
-         if let document = document,document.exists{
-         guard let data = document.data() else{return}
-         if let docData = data["myclass"] as? Data{
-         let docInfo = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(docData) as? DocumentInfo
-         print(docInfo?.explain)
-         print(docInfo?.savedDate)
-         print(docInfo?.context)
-         print(docInfo?.uid)
-         }
-         }
-         }
-         */
+
     }
 }

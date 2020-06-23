@@ -180,6 +180,7 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
     @IBAction func saveButtonTapped(_ sender: Any) {
         let nextScene = self.storyboard?.instantiateViewController(identifier: "DocumentSaveSceneVC") as! DocumentSaveSceneVC
         nextScene.receivedImage = readImage.image
+        nextScene.receivedTextFromPreScene = sentenceView.text
         nextScene.modalPresentationStyle = .pageSheet
         self.present(nextScene,animated: true,completion: nil)
     }
