@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0714568224A1F2B200F1BDAE /* LoadingSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568124A1F2B200F1BDAE /* LoadingSceneVC.swift */; };
 		073A712924A190DC00882C1E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073A712724A190D400882C1E /* opencv2.framework */; };
 		078B1C6C249D8D6100BD24AF /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */; };
 		078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C8624A1856700BD24AF /* OpenCVUtils.mm */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0714568124A1F2B200F1BDAE /* LoadingSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSceneVC.swift; sourceTree = "<group>"; };
 		073A712724A190D400882C1E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
 		078B1C8424A1842C00BD24AF /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				07C1F9A7249AF719000232F5 /* zikkenVC.swift */,
 				07C1F9BC249BB970000232F5 /* QuestionSceneVC.swift */,
 				078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */,
+				0714568124A1F2B200F1BDAE /* LoadingSceneVC.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			files = (
 				0798C1882497A3C6007D3C08 /* AppDelegate.swift in Sources */,
 				0798C18A2497A3C6007D3C08 /* SceneDelegate.swift in Sources */,
+				0714568224A1F2B200F1BDAE /* LoadingSceneVC.swift in Sources */,
 				0798C1C42497BB09007D3C08 /* DocumentMakeSceneVC.swift in Sources */,
 				0798C1CB2498BD40007D3C08 /* DocumentListVC.swift in Sources */,
 				078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */,

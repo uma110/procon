@@ -20,7 +20,10 @@ class QuestionSceneVC: UIViewController,UIScrollViewDelegate{
     "The fact that some restaurants throw away the clean leftover food.",
     "b)"]
     
+    var mainContext:String = ""
+    @IBOutlet weak var contextField: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
     var questionTitle:UILabel = UILabel()
     var answerTitle:UILabel = UILabel()
     
@@ -29,6 +32,7 @@ class QuestionSceneVC: UIViewController,UIScrollViewDelegate{
         super.viewDidLoad()
         print("view did load current")
         
+        contextField.text = mainContext
         initializeScrollView(scrollView: scrollView)
     }
     

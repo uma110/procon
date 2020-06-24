@@ -19,3 +19,12 @@ class AppUtils{
         currentVC.present(alertController, animated: true)
     }
 }
+
+extension String{
+    func format() -> String{
+        var target = self
+        target = target.replacingOccurrences(of: "(\n){1}", with: " ", options: NSString.CompareOptions.regularExpression, range:target.range(of: target))
+        target = target.replacingOccurrences(of: "[\\s]+",with: " ", options: NSString.CompareOptions.regularExpression, range:target.range(of: target))
+        return target
+    }
+}

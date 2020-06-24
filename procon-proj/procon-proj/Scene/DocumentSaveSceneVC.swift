@@ -265,6 +265,5 @@ class DocumentSaveSceneVC: UIViewController,UIScrollViewDelegate,UITextFieldDele
             print("data save ok")
             AppUtils.alert(currentVC: self, title: "", message: "ドキュメントデータをオンラインにアップロードしました。")
         }
-
     }
 }

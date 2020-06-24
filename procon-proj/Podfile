@@ -13,7 +13,7 @@ target 'procon-proj' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-  pod 'TesseractOCRiOS'
+#  pod 'TesseractOCRiOS'
   
   target 'procon-projTests' do
     inherit! :search_paths

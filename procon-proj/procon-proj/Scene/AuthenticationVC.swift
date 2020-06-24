@@ -101,7 +101,7 @@ class AuthenticationVC: UIViewController ,UITextFieldDelegate{
         case .wrongPassword: message = "入力した認証情報でサインインできません"
         case .userDisabled: message = "このアカウントは無効です"
         case .weakPassword: message = "パスワードが脆弱すぎます"
-        // これは一例です。必要に応じて増減させてください
+        // これは一例です。必要に応じて増減させてください。
         default:
             message = "特定外のエラー"
         }

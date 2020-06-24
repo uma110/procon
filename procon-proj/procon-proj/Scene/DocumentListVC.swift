@@ -83,9 +83,10 @@ class DocumentListVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         let okAction = UIAlertAction(title: "問題を解く", style: .default, handler: {action in
             print("go")
-            let questionScene = self.storyboard?.instantiateViewController(identifier: "QuestionSceneVC") as! QuestionSceneVC
-            questionScene.modalPresentationStyle = .fullScreen
-            self.present(questionScene,animated: true,completion: nil)
+            let loadingScene = self.storyboard?.instantiateViewController(identifier: "LoadingSceneVC") as! LoadingSceneVC
+            loadingScene.receivedTextFromPreScene = docInfo.context ?? ""
+            loadingScene.modalPresentationStyle = .fullScreen
+            self.present(loadingScene,animated: true,completion: nil)
         })
         
         alertController.addAction(cancelAction)

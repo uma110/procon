@@ -16,9 +16,10 @@
 
 //RGB→Gray
 + (UIImage*)rgb2binary:(UIImage *)image threshold:(int)threshold{
-   cv::Mat img_Mat;
-   UIImageToMat(image, img_Mat);
-   cv::cvtColor(img_Mat, img_Mat, cv::COLOR_BGR2GRAY);
-   return MatToUIImage(img_Mat);
+    cv::Mat img_Mat;
+    UIImageToMat(image, img_Mat);
+    cv::cvtColor(img_Mat, img_Mat, cv::COLOR_BGR2GRAY);
+    cv::threshold(img_Mat, img_Mat, threshold, 255, cv::THRESH_BINARY);
+    return MatToUIImage(img_Mat);
 }
 @end

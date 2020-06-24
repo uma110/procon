@@ -189,17 +189,29 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveQuestionScene:" destination="0Hc-Dc-pGo" eventType="touchUpInside" id="AfX-zX-LkP"/>
+                                    <action selector="moveLoadingScene:" destination="0Hc-Dc-pGo" eventType="touchUpInside" id="AfX-zX-LkP"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-od-0Zq">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="122" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-od-0Zq">
                                 <rect key="frame" x="63" y="1055" width="201" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrI-C8-Nhp">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WrI-C8-Nhp">
                                 <rect key="frame" x="65" y="1092" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-6D-oft">
+                                <rect key="frame" x="659" y="30" width="83" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8364030116580311" green="0.8364030116580311" blue="0.8364030116580311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Format">
+                                    <color key="titleColor" red="0.21941565096807394" green="0.49018027193925279" blue="0.61026990949067361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="textFormat:" destination="0Hc-Dc-pGo" eventType="touchUpInside" id="YpE-gq-48B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="uHm-lC-W7q"/>
@@ -434,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beO-bi-Jfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83.453237410071949" y="957.7889447236181"/>
+            <point key="canvasLocation" x="-370" y="1088"/>
         </scene>
         <!--AuthenticationVC-->
         <scene sceneID="TGj-El-Jb1">
@@ -720,12 +732,13 @@
                         <viewLayoutGuide key="safeArea" id="DVX-Ut-HdQ"/>
                     </view>
                     <connections>
+                        <outlet property="contextField" destination="DuQ-pC-cNJ" id="gG6-kW-Gd3"/>
                         <outlet property="scrollView" destination="G5K-Nb-YZq" id="SyP-Bo-CVH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKG-5M-HpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83.453237410071949" y="1788.9447236180904"/>
+            <point key="canvasLocation" x="329" y="1783"/>
         </scene>
         <!--オンライン-->
         <scene sceneID="dgi-rr-hSX">
@@ -835,8 +848,85 @@
             </objects>
             <point key="canvasLocation" x="693.52517985611519" y="285.92964824120605"/>
         </scene>
+        <!--Loading SceneVC-->
+        <scene sceneID="vXD-OE-hU8">
+            <objects>
+                <viewController storyboardIdentifier="LoadingSceneVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0wI-zC-K33" customClass="LoadingSceneVC" customModule="procon_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r3B-JK-FIV">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="watermark" translatesAutoresizingMaskIntoConstraints="NO" id="FzZ-T1-yHR">
+                                <rect key="frame" x="44" y="-349" width="753" height="1994"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1127" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-GD-NRV">
+                                <rect key="frame" x="20" y="955" width="210" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keirei-hiyoko" id="UUK-h9-CZF">
+                                <rect key="frame" x="315" y="583" width="210" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pome-osuwari" id="RKE-Mj-5WE">
+                                <rect key="frame" x="156" y="955" width="210" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pome-hyoko" id="84w-Ix-Sg7">
+                                <rect key="frame" x="156" y="231" width="210" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyE-a7-xmJ">
+                                <rect key="frame" x="203" y="343" width="413" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OEg-Mo-zs1">
+                                <rect key="frame" x="286" y="47" width="208" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="debugFunc2:" destination="0wI-zC-K33" eventType="touchUpInside" id="vBf-fQ-qxc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eci-Pe-moY">
+                                <rect key="frame" x="44" y="47" width="208" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="debugFunc1:" destination="0wI-zC-K33" eventType="touchUpInside" id="aIp-at-0ZP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQ9-YS-8rY">
+                                <rect key="frame" x="488" y="47" width="217" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="debugFunc3:" destination="0wI-zC-K33" eventType="touchUpInside" id="Nfg-UK-AYG"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pome-hyokkori" id="xzX-Te-bF3">
+                                <rect key="frame" x="520" y="313" width="229" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iV7-Tl-ipy"/>
+                    </view>
+                    <connections>
+                        <outlet property="message" destination="tyE-a7-xmJ" id="1Sy-3P-xEp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i3m-oi-eKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328.77697841726621" y="1087.9396984924624"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="IMG_1127" width="854" height="854"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
@@ -846,14 +936,19 @@
         <image name="icloud.and.arrow.down.fill" catalog="system" width="128" height="112"/>
         <image name="icloud.and.arrow.up" catalog="system" width="128" height="106"/>
         <image name="icloud.fill" catalog="system" width="128" height="88"/>
+        <image name="keirei-hiyoko" width="685" height="685"/>
         <image name="noimage" width="512" height="341"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="pome-hyokkori" width="1588" height="1588"/>
+        <image name="pome-hyoko" width="1535" height="1535"/>
+        <image name="pome-osuwari" width="1261" height="1261"/>
         <image name="sample" width="3024" height="4032"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="tray.and.arrow.down" catalog="system" width="128" height="109"/>
+        <image name="watermark" width="1110" height="1480"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

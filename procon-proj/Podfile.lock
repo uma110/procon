@@ -383,7 +383,6 @@ PODS:
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
-  - TesseractOCRiOS (5.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -391,7 +390,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
-  - TesseractOCRiOS
 
 SPEC REPOS:
   trunk:
@@ -421,7 +419,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
-    - TesseractOCRiOS
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -450,8 +447,7 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
-  TesseractOCRiOS: 2c189465f86abb030d0c5141c90da9705b647854
 
-PODFILE CHECKSUM: 930d99e73b22b3bca809bc0bade0e88c7142df0f
+PODFILE CHECKSUM: b7c82f43f9b28ddac0532d155a2ae746ea569525
 
 COCOAPODS: 1.9.3

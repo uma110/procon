@@ -57,13 +57,20 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         if targetImage != nil{
             if binarySwitch.isOn{
                 let threshold = Int32(sliderValue.value)
-                extractTextFromImage(OpenCVUtils.rgb2binary(targetImage!, threshold: threshold))
+                let binarizedImage = OpenCVUtils.rgb2binary(targetImage!, threshold: threshold)
+                readImage.image = binarizedImage
+                extractTextFromImage(binarizedImage!)
             }else{
                 extractTextFromImage(targetImage!)
             }
         }else{
             print("target image -> nil")
         }
+    }
+    
+    @IBAction func textFormat(_ sender: Any) {
+        let target:String = sentenceView.text
+        sentenceView.text = target.format()
     }
     
     @IBOutlet weak var sliderValue: UISlider!
@@ -171,10 +178,16 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
         }
     }
     
-    @IBAction func moveQuestionScene(_ sender: Any) {
+    @IBAction func moveLoadingScene(_ sender: Any) {
+        /*
         let questionScene = self.storyboard?.instantiateViewController(identifier: "QuestionSceneVC") as! QuestionSceneVC
         questionScene.modalPresentationStyle = .fullScreen
         self.present(questionScene,animated: true,completion: nil)
+ */
+        let loadingScene = self.storyboard?.instantiateViewController(identifier: "LoadingSceneVC") as! LoadingSceneVC
+        loadingScene.modalPresentationStyle = .fullScreen
+        loadingScene.receivedTextFromPreScene = sentenceView.text
+        self.present(loadingScene,animated: true,completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
