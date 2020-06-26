@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0714568224A1F2B200F1BDAE /* LoadingSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568124A1F2B200F1BDAE /* LoadingSceneVC.swift */; };
+		0714568A24A3211B00F1BDAE /* BERT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568324A3211200F1BDAE /* BERT.swift */; };
+		0714568B24A3211B00F1BDAE /* BERTOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568424A3211300F1BDAE /* BERTOutput.swift */; };
+		0714568C24A3211B00F1BDAE /* BERTVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568524A3211300F1BDAE /* BERTVocabulary.swift */; };
+		0714568D24A3211B00F1BDAE /* BERTQAFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0714568624A3211B00F1BDAE /* BERTQAFP16.mlmodel */; };
+		0714568E24A3211B00F1BDAE /* TokenizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568724A3211B00F1BDAE /* TokenizedString.swift */; };
+		0714568F24A3211B00F1BDAE /* BERTInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0714568824A3211B00F1BDAE /* BERTInput.swift */; };
+		0714569024A3211B00F1BDAE /* bert-base-uncased-vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0714568924A3211B00F1BDAE /* bert-base-uncased-vocab.txt */; };
 		073A712924A190DC00882C1E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073A712724A190D400882C1E /* opencv2.framework */; };
 		078B1C6C249D8D6100BD24AF /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */; };
 		078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B1C8624A1856700BD24AF /* OpenCVUtils.mm */; };
@@ -55,6 +62,13 @@
 
 /* Begin PBXFileReference section */
 		0714568124A1F2B200F1BDAE /* LoadingSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSceneVC.swift; sourceTree = "<group>"; };
+		0714568324A3211200F1BDAE /* BERT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BERT.swift; sourceTree = "<group>"; };
+		0714568424A3211300F1BDAE /* BERTOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BERTOutput.swift; sourceTree = "<group>"; };
+		0714568524A3211300F1BDAE /* BERTVocabulary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BERTVocabulary.swift; sourceTree = "<group>"; };
+		0714568624A3211B00F1BDAE /* BERTQAFP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BERTQAFP16.mlmodel; sourceTree = "<group>"; };
+		0714568724A3211B00F1BDAE /* TokenizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenizedString.swift; sourceTree = "<group>"; };
+		0714568824A3211B00F1BDAE /* BERTInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BERTInput.swift; sourceTree = "<group>"; };
+		0714568924A3211B00F1BDAE /* bert-base-uncased-vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bert-base-uncased-vocab.txt"; sourceTree = "<group>"; };
 		073A712724A190D400882C1E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		078B1C6B249D8D6100BD24AF /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
 		078B1C8424A1842C00BD24AF /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -126,6 +140,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0714569124A32A0B00F1BDAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		078B1C6D24A0A74700BD24AF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,11 +158,18 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
-		078B1C8124A11ED400BD24AF /* Model */ = {
+		078B1C8124A11ED400BD24AF /* Bert */ = {
 			isa = PBXGroup;
 			children = (
+				0714568924A3211B00F1BDAE /* bert-base-uncased-vocab.txt */,
+				0714568324A3211200F1BDAE /* BERT.swift */,
+				0714568824A3211B00F1BDAE /* BERTInput.swift */,
+				0714568424A3211300F1BDAE /* BERTOutput.swift */,
+				0714568624A3211B00F1BDAE /* BERTQAFP16.mlmodel */,
+				0714568524A3211300F1BDAE /* BERTVocabulary.swift */,
+				0714568724A3211B00F1BDAE /* TokenizedString.swift */,
 			);
-			path = Model;
+			path = Bert;
 			sourceTree = "<group>";
 		};
 		0798C17B2497A3C6007D3C08 = {
@@ -169,7 +197,8 @@
 		0798C1862497A3C6007D3C08 /* procon-proj */ = {
 			isa = PBXGroup;
 			children = (
-				078B1C8124A11ED400BD24AF /* Model */,
+				0714569124A32A0B00F1BDAE /* Model */,
+				078B1C8124A11ED400BD24AF /* Bert */,
 				078B1C6D24A0A74700BD24AF /* Framework */,
 				0798C1C5249859D9007D3C08 /* AppUtils */,
 				0798C1BC2497B088007D3C08 /* Scene */,
@@ -369,6 +398,7 @@
 				07C1F9B7249B0F32000232F5 /* GoogleService-Info.plist in Resources */,
 				0798C1942497A3C7007D3C08 /* Assets.xcassets in Resources */,
 				0798C18F2497A3C6007D3C08 /* Main.storyboard in Resources */,
+				0714569024A3211B00F1BDAE /* bert-base-uncased-vocab.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,16 +564,22 @@
 				0798C18A2497A3C6007D3C08 /* SceneDelegate.swift in Sources */,
 				0714568224A1F2B200F1BDAE /* LoadingSceneVC.swift in Sources */,
 				0798C1C42497BB09007D3C08 /* DocumentMakeSceneVC.swift in Sources */,
+				0714568A24A3211B00F1BDAE /* BERT.swift in Sources */,
 				0798C1CB2498BD40007D3C08 /* DocumentListVC.swift in Sources */,
+				0714568E24A3211B00F1BDAE /* TokenizedString.swift in Sources */,
 				078B1C8724A1856700BD24AF /* OpenCVUtils.mm in Sources */,
+				0714568D24A3211B00F1BDAE /* BERTQAFP16.mlmodel in Sources */,
 				07C1F9A8249AF719000232F5 /* zikkenVC.swift in Sources */,
 				0798C1BE2497B0AC007D3C08 /* DocumentOnlineListVC.swift in Sources */,
 				07C1F9A4249A4363000232F5 /* TabController.swift in Sources */,
 				0798C1C724985B0F007D3C08 /* DocumentDataOperator.swift in Sources */,
 				07C1F99E2499E2E5000232F5 /* DocumentSaveSceneVC.swift in Sources */,
+				0714568F24A3211B00F1BDAE /* BERTInput.swift in Sources */,
 				07C1F9BD249BB970000232F5 /* QuestionSceneVC.swift in Sources */,
 				0798C1C924985D0E007D3C08 /* AppUtils.swift in Sources */,
+				0714568B24A3211B00F1BDAE /* BERTOutput.swift in Sources */,
 				07C1F9BB249B2538000232F5 /* metalSetting.metal in Sources */,
+				0714568C24A3211B00F1BDAE /* BERTVocabulary.swift in Sources */,
 				0798C1922497A3C6007D3C08 /* procon_proj.xcdatamodeld in Sources */,
 				07C1F9B9249B1140000232F5 /* image_process.swift in Sources */,
 				078B1C6C249D8D6100BD24AF /* AuthenticationVC.swift in Sources */,

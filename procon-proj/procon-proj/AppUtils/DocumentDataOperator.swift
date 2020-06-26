@@ -29,7 +29,7 @@ final class DocumentDataOperator{
         }
     }
     
-    public func removeUid(uid:String){
+    private func removeUid(uid:String){
         var uidArray:[String]? = userDefaults.stringArray(forKey: DocumentDataOperator.DATA_UID_KEY)
         if uidArray != nil{
             uidArray?.removeAll(where: {$0 == uid})
@@ -96,7 +96,7 @@ final class DocumentDataOperator{
         return fileURL!.path
     }
     
-    public func removeImage(filename:String)->Bool{
+    private func removeImage(filename:String)->Bool{
         do{
             try FileManager.default.removeItem(atPath: fileInDocumentsDirectory(filename: filename))
         }catch{
@@ -127,7 +127,7 @@ final class DocumentDataOperator{
         return image
     }
     
-    public func removeDocumentInfo(uid:String){
+    private func removeDocumentInfo(uid:String){
         userDefaults.removeObject(forKey: uid)
     }
     
@@ -144,6 +144,16 @@ final class DocumentDataOperator{
             return try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(loadedData) as? DocumentInfo
         }
         return nil
+    }
+    
+    public func deleteDocumentData(uid:String){
+        let targetDocInfo = loadDocumentInfo(uid: uid)
+        let filename:String? = targetDocInfo?.imageFileName
+        if filename != nil{
+            removeImage(filename:filename!)
+        }
+        removeDocumentInfo(uid: uid)
+        removeUid(uid: uid)
     }
     
     public func saveDocumentData(image:UIImage,docInfo:DocumentInfo){

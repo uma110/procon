@@ -64,6 +64,19 @@ class DocumentListVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         return 300
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            print("delete")
+            
+            let uidArray = DocumentDataOperator.shared.getUidArray()
+            assert(indexPath.row < uidArray.count, "index is out of range uid array")
+            let uid = uidArray[indexPath.row]
+            DocumentDataOperator.shared.deleteDocumentData(uid: uid)
+            
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("select")
         
@@ -76,8 +89,9 @@ class DocumentListVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             assert(false, "loaded document info class -> nil")
         }
         
-        let message = String(describing: docInfo.explain) + "\n" + String(describing: docInfo.savedDate)
-        let alertController = UIAlertController(title:"確認メッセージ",message: message,preferredStyle: .alert)
+        let message = "タイトル: " + String(docInfo.explain ?? "") + "\n" + "保存日時: " + String(docInfo.savedDate ?? "")
+        
+        let alertController = UIAlertController(title:"ドキュメント内容",message: message,preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "戻る", style: .default, handler: {action in print("back")})
         

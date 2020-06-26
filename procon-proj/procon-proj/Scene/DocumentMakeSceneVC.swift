@@ -179,14 +179,11 @@ class DocumentMakeSceneVC: UIViewController , UIImagePickerControllerDelegate,UI
     }
     
     @IBAction func moveLoadingScene(_ sender: Any) {
-        /*
-        let questionScene = self.storyboard?.instantiateViewController(identifier: "QuestionSceneVC") as! QuestionSceneVC
-        questionScene.modalPresentationStyle = .fullScreen
-        self.present(questionScene,animated: true,completion: nil)
- */
         let loadingScene = self.storyboard?.instantiateViewController(identifier: "LoadingSceneVC") as! LoadingSceneVC
+        
         loadingScene.modalPresentationStyle = .fullScreen
         loadingScene.receivedTextFromPreScene = sentenceView.text
+        
         self.present(loadingScene,animated: true,completion: nil)
     }
     
